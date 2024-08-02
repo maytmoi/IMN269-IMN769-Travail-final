@@ -43,7 +43,7 @@ def estimer_flot_optique(chemin_video, max_coins=100, niveau_qualite=0.3, distan
         print("Erreur: Impossible de lire la première image")
         return None
 
-    ancienne_image_gris = cv2.cvtColor(ancienne_image, cv2.COLOR_BGR2GRAY)
+    ancienne_image_gris = cv2.cvtColor(ancienne_image, cv2.COLOR_RGB2GRAY)
 
     points_initiaux = cv2.goodFeaturesToTrack(ancienne_image_gris, mask=None, **params_points)
 
@@ -61,7 +61,7 @@ def estimer_flot_optique(chemin_video, max_coins=100, niveau_qualite=0.3, distan
         if compteur_images % pas_images != 0:
             continue
 
-        image_gris = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+        image_gris = cv2.cvtColor(image, cv2.COLOR_RGB2GRAY)
 
         points_suivis, statut, err = cv2.calcOpticalFlowPyrLK(ancienne_image_gris, image_gris, points_initiaux, None, **params_lk)
 
