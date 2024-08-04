@@ -100,4 +100,4 @@ res = estimer_flot_optique('1H_side1.mp4', max_coins=150, pas_images=10, taille_
 
 if res is not None:
     enregistrer_resultats_csv(res, 'resultats_flot_optique.csv')
-    print("resulytat enregistré")
+    print("resultat enregistré")
